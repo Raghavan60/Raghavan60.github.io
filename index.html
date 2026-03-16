@@ -28,8 +28,10 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#">Resume</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -40,6 +42,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero section-hidden">
         <div class="hero-content">
+            <p class="hero-greeting">Hi, I'm</p>
             <h1 class="hero-title">Srinivasa Raghavan</h1>
             <div class="hero-subtitle">
                 <span id="typed-text"></span>
@@ -48,6 +51,7 @@
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-download" style="margin-right: 8px;"></i>Download Resume</a>
             </div>
         </div>
     </section>
@@ -61,6 +65,35 @@
                     <p>I am a passionate <strong>Computer Science student</strong> specializing in <strong>Data Science</strong>. My journey revolves around programming, problem solving, and building intelligent software solutions that bridge the gap between data and actionable insights.</p>
                     <p>I am driven by an insatiable curiosity to explore state-of-the-art technologies and artificial intelligence. My goal is to build impactful solutions through elegant code and robust architectures, constantly pushing the boundaries of what's possible.</p>
                 </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-value">4+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">&lt;1 Year</span>
+                        <span class="stat-label">Coding</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">Data Science</span>
+                        <span class="stat-label">Focus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section-hidden">
+        <div class="container">
+            <h2 class="section-title">Education<span class="dot">.</span></h2>
+            <div class="education-content">
+                <div class="education-card">
+                    <h3 class="edu-degree">B.Tech in Computer Science Engineering (Data Science)</h3>
+                    <p class="edu-institution">Marri Laxman Reddy Institute of Technology and Management</p>
+                    <p class="edu-duration">2024 &ndash; 2028</p>
+                    <p class="edu-desc">Currently in 1st year, focusing on data structures, programming fundamentals, and data science foundations.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -73,22 +106,32 @@
                 <div class="skill-card">
                     <i class="fab fa-python skill-icon"></i>
                     <h3>Python</h3>
-                    <div class="skill-bar"><div class="skill-fill python"></div></div>
+                    <div class="skill-bar"><div class="skill-fill python" data-width="90%"></div></div>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-c skill-icon"></i>
                     <h3>C</h3>
-                    <div class="skill-bar"><div class="skill-fill c"></div></div>
+                    <div class="skill-bar"><div class="skill-fill c" data-width="85%"></div></div>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-database skill-icon"></i>
                     <h3>SQL</h3>
-                    <div class="skill-bar"><div class="skill-fill sql"></div></div>
+                    <div class="skill-bar"><div class="skill-fill sql" data-width="80%"></div></div>
                 </div>
                 <div class="skill-card">
                     <i class="fab fa-java skill-icon"></i>
                     <h3>Java</h3>
-                    <div class="skill-bar"><div class="skill-fill java"></div></div>
+                    <div class="skill-bar"><div class="skill-fill java" data-width="75%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>HTML/CSS</h3>
+                    <div class="skill-bar"><div class="skill-fill html-css" data-width="85%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-brain skill-icon"></i>
+                    <h3>Machine Learning</h3>
+                    <div class="skill-bar"><div class="skill-fill ml" data-width="70%"></div></div>
                 </div>
             </div>
         </div>
@@ -109,6 +152,7 @@
                                 <a href="javascript:void(0)" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
+                        <div class="project-badge badge-completed">2024 &middot; Completed</div>
                         <h3 class="project-title">Data Analysis Dashboard</h3>
                         <p class="project-desc">A comprehensive dashboard that visualizes complex datasets, providing real-time interactive analytics and dynamic reporting.</p>
                         <ul class="project-tech">
@@ -128,6 +172,7 @@
                                 <a href="javascript:void(0)" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
+                        <div class="project-badge badge-completed">2024 &middot; Completed</div>
                         <h3 class="project-title">Student Performance Predictor</h3>
                         <p class="project-desc">A machine learning model designed to analyze academic records and predict future student outcomes with high accuracy.</p>
                         <ul class="project-tech">
@@ -166,6 +211,7 @@
                                 <a href="javascript:void(0)" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
+                        <div class="project-badge badge-progress">In Progress</div>
                         <h3 class="project-title">Smart Recommendation System</h3>
                         <p class="project-desc">An AI-powered recommendation engine utilizing collaborative filtering to deliver personalized content suggestions.</p>
                         <ul class="project-tech">
@@ -202,7 +248,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Srinivasa Raghavan &ndash; Portfolio</p>
+            <p>&copy; <span id="footer-year"></span> Srinivasa Raghavan &ndash; Portfolio</p>
             <p class="footer-subtext">Designed & Built with <i class="fas fa-code"></i></p>
         </div>
     </footer>

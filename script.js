@@ -95,21 +95,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Smooth scrolling for navigation links
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            // Close mobile menu if open
-            document.querySelector('.nav-links').classList.remove('active');
-            const icon = document.querySelector('.hamburger i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-            
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#') return; // Do not apply smooth scroll to simple '#' anchors
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks) navLinks.classList.remove('active');
+                
+                const icon = document.querySelector('.hamburger i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                
                 window.scrollTo({
                     top: targetElement.offsetTop - 70, // offset for navbar
                     behavior: 'smooth'
@@ -150,6 +152,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!entry.isIntersecting) return;
             
             entry.target.classList.add('section-visible');
+            
+            // Animate skill bars if this is the skills section
+            if (entry.target.id === 'skills') {
+                const skillFills = entry.target.querySelectorAll('.skill-fill');
+                skillFills.forEach(skill => {
+                    const targetWidth = skill.getAttribute('data-width');
+                    if (targetWidth) {
+                        skill.style.width = targetWidth;
+                    }
+                });
+            }
+
             observer.unobserve(entry.target); // Only animate once
         });
     }, revealOptions);
@@ -169,5 +183,38 @@ document.addEventListener("DOMContentLoaded", () => {
             nav.style.background = 'rgba(5, 5, 5, 0.8)';
         }
     });
+
+    // 7. Active Navigation Highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    const navObserverOptions = {
+        threshold: 0.2,
+        rootMargin: "-50px 0px -50% 0px" // Adjust to trigger when section is nicely within viewport
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${currentId}`) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, navObserverOptions);
+
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+
+    // 8. Fix the Footer Year
+    const footerYearEl = document.getElementById('footer-year');
+    if (footerYearEl) {
+        footerYearEl.textContent = new Date().getFullYear();
+    }
 
 });

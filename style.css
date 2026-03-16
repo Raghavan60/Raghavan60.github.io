@@ -123,7 +123,8 @@ a {
     transition: var(--transition-standard);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--accent-color);
     text-shadow: 0 0 8px var(--accent-glow);
 }
@@ -149,6 +150,14 @@ a {
 .hero-content {
     z-index: 1;
     max-width: 800px;
+}
+
+.hero-greeting {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    animation: fadeInDown 1s ease forwards;
 }
 
 .hero-title {
@@ -242,6 +251,82 @@ section {
     font-weight: 500;
 }
 
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: var(--transition-standard);
+}
+
+.stat-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -10px var(--accent-glow);
+}
+
+.stat-value {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+/* Education Section */
+.education-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid #222;
+    transition: var(--transition-standard);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px -10px var(--accent-glow);
+}
+
+.edu-degree {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-institution {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.edu-duration {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.edu-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -290,12 +375,9 @@ section {
     height: 100%;
     background-color: var(--accent-color);
     box-shadow: 0 0 10px var(--accent-color);
+    width: 0;
+    transition: width 1s ease;
 }
-
-.python { width: 90%; }
-.c { width: 85%; }
-.sql { width: 80%; }
-.java { width: 75%; }
 
 /* Projects Section */
 .projects-grid {
@@ -326,6 +408,21 @@ section {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
+}
+
+.project-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.badge-completed {
+    color: #4ade80;
+}
+
+.badge-progress {
+    color: #fbbf24;
 }
 
 .folder-icon {
